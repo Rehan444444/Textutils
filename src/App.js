@@ -3,15 +3,19 @@ import './App.css';
 import Navbar from './components/Navbar'
 import Textform from './components/Textform'
 // import { useState } from 'react';
-import React,{useInsertionEffect, useState} from 'react';
 
-import Layout from './components/Layout'
-import Alert from './components/Alert'
+
+import React,{useInsertionEffect, useState} from 'react';
+import About from './components/About'
+
+// import Layout from './components/Layout'
+// import Alert from './components/Alert'
+
 // import {
 //   BrowserRouter as Router,
 //   Switch,
 //   Route,
-//   Link
+//   link
 // } from "react-Router-dom";
 
 
@@ -49,17 +53,23 @@ function App() {
   
   {/* <Router> */}
   <div className="container">
-  {/* <Switch>
-          <Route exact path="/Layout">
-            <Layout />
-          </Route> */}
-         
-          {/* <Route exact path="/" component={Textform}> */}
-          <Textform heading="Enter the text for analyse" mode={Mode}/>
+  {/* <Switch> */}
+  <Textform heading="Enter the text for analyse" mode={Mode}/>
+          {/* <Route exact path="/about"> */}
+          <About exact path="/about" component={About} mode={Mode} />
+          {/* </Route>
+          */}
+          {/* <Route exact path="/" component={Textform}>  */}
+          {/* <Textform heading="Enter the text for analyse" mode={Mode}/> */}
+          {/* </Route> */}
+          
+          {/* <Textform heading="Enter the text for analyse" mode={Mode}/>
+          // <About exact path="/About" component={About} mode={Mode} />
           {/* <Navbar/> */}
           {/* </Route>
-          </Switch>
-               */}
+           */}
+           {/* </Switch> */}
+              
   </div>
   {/* </Router> */}
  

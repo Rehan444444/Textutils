@@ -48,29 +48,29 @@ export default function Textform(props) {
   <label htmlFor="exampleFormControlInput1" className="form-label">Email address</label>
   <input type="email" className="form-control" style={{backgroundColor:props.mode==='dark'?'#4e3f68':'white',color:props.mode==='dark'?'white':'black'}}  id="exampleFormControlInput1" placeholder="name@example.com"/>
 </div> */}
-      <div className="container2"  style={{ color: props.mode === 'dark' ? 'white' : 'black' }} >
+      <div className="container2" style={{ color: props.mode === 'dark' ? 'white' : 'black' }} >
         <h1>{props.heading}</h1>
-      
-      <div className="mb-3">
-        {/* <label for="exampleFormControlTextarea1" className="form-label">{props.heading}</label> */}
-        <textarea className="form-control" onChange={handleonchange} style={{ backgroundColor: props.mode === 'dark' ? 'rgb(26 38 80)' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} value={text} id="exampleFormControlTextarea1" rows="12" ></textarea>
+
+        <div className="mb-3">
+          {/* <label for="exampleFormControlTextarea1" className="form-label">{props.heading}</label> */}
+          <textarea className="form-control" onChange={handleonchange} style={{ backgroundColor: props.mode === 'dark' ? 'rgb(26 38 80)' : 'white', color: props.mode === 'dark' ? 'white' : 'black' }} value={text} id="exampleFormControlTextarea1" rows="12" ></textarea>
 
 
-        <button className="btn btn-primary my-3" onClick={handleupclick}>Convert to Uppercase</button>
-        <button className="btn btn-danger mx-3" onClick={handlelowclick} >Convert to lowercase</button>
-        <button className="btn btn-success " onClick={handleclearclick} >Clear Text</button>
-        <button className="btn btn-secondary mx-3" onClick={handleuplowclick} >Convert to Upper+Lower</button>
+          <button disabled={text.length===0} className="btn btn-primary my-3 my-2" onClick={handleupclick}>Convert to Uppercase</button>
+          <button  disabled={text.length===0}  className="btn btn-danger mx-3 my-2" onClick={handlelowclick} >Convert to lowercase</button>
+          <button  disabled={text.length===0}  className="btn btn-success " onClick={handleclearclick} >Clear Text</button>
+          <button className="btn btn-secondary mx-3 my-2" onClick={handleuplowclick} >Convert to Upper+Lower</button>
 
         </div>
       </div>
 
       <div className="container" style={{ color: props.mode === 'dark' ? 'white' : 'black' }}>
         <h1>Summary</h1>
-        <p>{text.split(" ").length} Words an {text.length} Characters</p>
-        <p>{0.008 * text.split(" ").length}minutes required to read this paragragh</p>
+        <p>{text.split(/\s+/).filter((element) => { return element.length !==0 }).length} Words an {text.length} Characters</p>
+        <p>{0.008 * text.split(/\s+/).filter((element) => { return element.length !== 0 }).length}minutes required to read this paragragh</p>
 
         <h1>Preview</h1>
-        <p>{text.length>0?text:"Enter to preview"}</p>
+        <p>{text.length > 0 ? text : "Nothing to preview"}</p>
 
       </div>
     </>
